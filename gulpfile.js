@@ -6,3 +6,7 @@ gulp.task('bundlecss', function() {
     .pipe(bundle())
     .pipe(gulp.dest('./public/stylesheets/'));
 });
+
+gulp.task('watch', function(){
+    gulp.watch('./css/scss/**/*.scss', ['bundlecss'])
+});

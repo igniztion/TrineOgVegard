@@ -1,7 +1,7 @@
 var DocumentDBClient = require('documentdb').DocumentClient;
 var config = require('./config');
-var Articles = require('./routes/articles');
-var ArticleDao = require('./models/articleDao');
+//var Articles = require('./routes/articles');
+//var ArticleDao = require('./models/articleDao');
 
 var express = require('express');
 var path = require('path');
@@ -29,17 +29,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use('/', routes);
 // app.use('/users', users);
-var docDbClient = new DocumentDBClient(config.host, {
-    masterKey: config.authKey
-});
-var articleDao = new ArticleDao(docDbClient, config.databaseId, config.articleCollectionId);
-var articles = new Articles(articleDao);
-articleDao.init(function(err){
-    console.log(err);
-});
-
-app.get('/', articles.getArticles.bind(articles));
-app.post('/addArticle', articles.addArticle.bind(articles));
+//var docDbClient = new DocumentDBClient(config.host, {
+//    masterKey: config.authKey
+//});
+//var articleDao = new ArticleDao(docDbClient, config.databaseId, config.articleCollectionId);
+//var articles = new Articles(articleDao);
+//articleDao.init(function(err){
+//    console.log(err);
+//});
+app.get('/', routes);
+//app.get('/', articles.getArticles.bind(articles));
+//app.post('/addArticle', articles.addArticle.bind(articles));
 // app.post('/completetask', taskList.completeTask.bind(taskList));
 app.set('view engine', 'jade');
 

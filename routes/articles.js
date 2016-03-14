@@ -15,7 +15,8 @@ Articles.prototype = {
       
       self.articleDao.find(querySpec, function(err, items){
          if(err){
-             throw err;
+             console.log(err);
+             items = [];
          } 
          
          res.render('index', {
@@ -31,7 +32,7 @@ Articles.prototype = {
       
       self.articleDao.addItem(item, function(err){
           if (err){
-              throw (err);
+              console.log(err);
           }
           
           res.redirect('/');

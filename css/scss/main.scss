@@ -12,9 +12,40 @@ h1{
     font-family: 'Kurale', serif;
 }
 
+nav{
+    &>ul{
+        list-style-type: none;
+        display: flex;
+        background-color: #e2e2e2;
+        li{
+            float: left;
+            display: flex;
+            margin-bottom: 0;
+            &:hover{
+                background-color: #e8e8e8;
+            }
+            a{
+                padding: 1rem 1.5rem;
+                &:hover{
+                    color: #9b4dca;
+                }
+            }
+        }
+    }
+}
+
 .hero{
     img{
         max-width: 100%;
         overflow-y: hidden;
+    }
+    #gmap{
+        height: 50rem;
+    }
+}
+
+.gm-style-iw{
+    p{
+        color: #000!important;
     }
 }

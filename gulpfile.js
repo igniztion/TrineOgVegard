@@ -7,6 +7,13 @@ gulp.task('bundlecss', function() {
     .pipe(gulp.dest('./public/stylesheets/'));
 });
 
+gulp.task('bundlejs', function(){
+  return gulp.src('./js/js.bundleconfig.js')
+  .pipe(bundle())
+  .pipe(gulp.dest('./public/javascripts/'))
+});
+
 gulp.task('watch', function(){
-    gulp.watch('./css/scss/**/*.scss', ['bundlecss'])
+    gulp.watch('./css/scss/**/*.scss', ['bundlecss']);
+    gulp.watch('./js/src/**/*.js', ['bundlejs']);
 });

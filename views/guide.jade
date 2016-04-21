@@ -1,0 +1,16 @@
+extends layout
+block content
+    div.row
+        div.column.hero
+            div#gmap
+    div.row
+        div#church.column.txtctr
+            h2 Tveit kirke 
+            p Tveit kirke er en langkirke fra 1100 i Kristiansand kommune, Vest-Agder fylke. Byggverket er i stein og har 450 plasser. Adkomst til stedet er via riksvei 41 og fylkesvei 453.
+    div.row
+        div#hotel.column.txtctr
+            h2 Clarion Hotel Ernst
+            p Etter vielsen og litt obligatorisk posering for fotografen, tar vi turen til Speilsalen hos Clarion Hotel Ernst. Vi regner med å ankomme rundt kl. 17.00
+block scripts
+    script(src='/javascripts/mapsinit.js')
+    script(src=gmapsscripturl, async, defer)

@@ -1,7 +1,7 @@
 var DocumentDBClient = require('documentdb').DocumentClient;
 var config = require('./config');
-var Articles = require('./routes/articles');
-var ArticleDao = require('./models/articleDao');
+var Rsvp = require('./routes/rsvp');
+var RsvpDao = require('./models/rsvpDao');
 
 var express = require('express');
 var path = require('path');
@@ -30,9 +30,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 var docDbClient = new DocumentDBClient(config.host, {
    masterKey: config.authKey
 });
+var rsvpDao = new RsvpDao(docDbClient, config.databaseId, config.rsvpCollectionId)
+var rsvpHandler = new Rsvp(rsvpDao);
+rsvpDao.init(function(err){
+  throw err;
+})
 //app.get('/', routes);
 app.get('/', routes);
 app.get('/guide', guide);
+app.get('/respond', rsvpHandler.show);
+app.post('/respond', rsvpHandler.addResponse.bind(rsvpHandler));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -11,7 +11,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
-var guide = require('./routes/guide');
 
 var app = express();
 
@@ -34,10 +33,9 @@ var rsvpDao = new RsvpDao(docDbClient, config.databaseId, config.rsvpCollectionI
 var rsvpHandler = new Rsvp(rsvpDao);
 rsvpDao.init(function(err){
   throw err;
-})
-//app.get('/', routes);
+});
+
 app.get('/', routes);
-app.get('/guide', guide);
 app.get('/respond', rsvpHandler.show);
 app.post('/respond', rsvpHandler.addResponse.bind(rsvpHandler));
 

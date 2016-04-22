@@ -26,6 +26,7 @@ nav{
             }
             a{
                 padding: 1rem 1.5rem;
+                color: #606c76;
                 &:hover{
                     color: #9b4dca;
                 }
@@ -44,8 +45,148 @@ nav{
     }
 }
 
+.rsvp{
+    input[type=text], textarea{
+        background-color: #fff;
+        &.error{
+            border-color: #B33A3A;
+        }
+    }
+    .label-inline{
+        font-size: 1.6rem;
+        font-weight: 700;
+    }
+}
+
 .gm-style-iw{
     p{
         color: #000!important;
     }
 }
+
+@media (min-width: 40.0rem){
+    div.column{
+        &.body-text, &.rsvp{
+            max-width: 50%;
+            flex: 0 0 50%;
+            margin-left: 25%;
+            
+        }
+        &.rsvp{
+            margin: auto;
+        }
+    }
+    header.mobile{
+        display: none;
+    }
+}
+
+// @media ( max-width: 39.9rem){
+//     header {
+//         background-color: #e2e2e2;
+//         padding: 10px;
+//         text-decoration: none;
+//         margin: -15px;
+//         position: fixed;
+//         width: 100%;
+//         z-index: 1;
+//         -webkit-box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.4);
+//         box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.4);
+//         div.hamburger{
+//             width: 25px;
+//             height: 15px;
+//             position: relative;
+//             margin: 20px auto;
+//             -webkit-transform: rotate(0deg);
+//             -moz-transform: rotate(0deg);
+//             -o-transform: rotate(0deg);
+//             transform: rotate(0deg);
+//             -webkit-transition: .5s ease-in-out;
+//             -moz-transition: .5s ease-in-out;
+//             -o-transition: .5s ease-in-out;
+//             transition: .5s ease-in-out;
+//             cursor: pointer;
+//              div{
+//                 display: block;
+//                 position: absolute;
+//                 height: 3px;
+//                 width: 100%;
+//                 background: #d3531a;
+//                 border-radius: 3px;
+//                 opacity: 1;
+//                 left: 0;
+//                 -webkit-transform: rotate(0deg);
+//                 -moz-transform: rotate(0deg);
+//                 -o-transform: rotate(0deg);
+//                 transform: rotate(0deg);
+//                 -webkit-transition: .25s ease-in-out;
+//                 -moz-transition: .25s ease-in-out;
+//                 -o-transition: .25s ease-in-out;
+//                 transition: .25s ease-in-out;
+//                 &:nth-child(1){
+//                     top: 0;
+//                 }
+//                 &:nth-child(2){
+//                     top: 0.5rem;
+//                 }
+//                 &:nth-child(3){
+//                     top: 1rem;
+//                 }
+//             }
+//         }
+//     }
+    
+//     nav {
+//         opacity: 0;
+//         left: 0px;
+//         top: 0px;
+//         position: fixed;
+//         z-index: 0;
+//         width: 70%;
+//         height: 100%;
+//         -webkit-box-sizing: border-box;
+//         -moz-box-sizing: border-box;
+//         box-sizing: border-box;
+//         overflow-x: hidden;
+//         overflow-y: auto;
+//         background: #3e3c3d;
+//         background: -moz-linear-gradient(top, #3e3c3d 0%, #2d2c2d 100%);
+//         background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3e3c3d), color-stop(100%, #2d2c2d));
+//         background: -webkit-linear-gradient(top, #3e3c3d 0%, #2d2c2d 100%);
+//         background: -o-linear-gradient(top, #3e3c3d 0%, #2d2c2d 100%);
+//         background: -ms-linear-gradient(top, #3e3c3d 0%, #2d2c2d 100%);
+//         background: linear-gradient(to bottom, #3e3c3d 0%, #2d2c2d 100%);
+//         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3e3c3d', endColorstr='#2d2c2d', GradientType=0);
+//         ul{
+//             list-style: none;
+//             margin: 0;
+//             width: 100%;
+//             padding: 0;
+            
+//             li{
+//                 position: relative;
+//                 font-size: 1em;
+//                 font-weight: bold;
+//                 border-bottom: 1px solid #222222;
+//                 border-top: 1px solid #444444;
+//                 padding: 15px;
+//                a{
+//                     color: #fff;
+//                     text-decoration: none;
+//                }
+//            }
+//         }
+//     }
+    
+//     div.content-overlay{
+//         display: none;
+//         height: 100%;
+//         overflow-x: hidden;
+//         overflow-y: auto;
+//         position: absolute;
+//         right: 0;
+//         top: 0;
+//         width: 30%;
+//         z-index: 5;
+//     }
+// }

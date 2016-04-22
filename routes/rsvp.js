@@ -33,7 +33,7 @@ Rsvp.prototype = {
         });
         
     },
-    addResponse : function(req, res){
+    addResponse : function(req, res, next){
         var self = this;
         var item = req.body;
         
@@ -44,7 +44,8 @@ Rsvp.prototype = {
             
             res.render('respond',{
                 title: "Takk - " + config.title,
-                submit: true
+                submit: true,
+                isComing: item.coming === 'yes'
             });
         });
     }

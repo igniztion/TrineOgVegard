@@ -3,8 +3,9 @@ var uglify = require('gulp-uglify');
 
 module.exports = {
   bundle: {
-    mapsinit: {
+    togv: {
       scripts: [
+          './js/src/hamburger.js',
           './js/src/mapsinit.js'
       ],
       options: {

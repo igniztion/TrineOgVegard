@@ -1,7 +1,7 @@
 var DocumentDBClient = require('documentdb').DocumentClient;
 var docdbUtils = require('./docdbUtils');
 
-function ArticleDao(documentDBClient, databaseId, collectionId) {
+function RsvpDao(documentDBClient, databaseId, collectionId) {
   this.client = documentDBClient;
   this.databaseId = databaseId;
   this.collectionId = collectionId;
@@ -10,28 +10,25 @@ function ArticleDao(documentDBClient, databaseId, collectionId) {
   this.collection = null;
 };
 
-ArticleDao.prototype = {
-    init: function (callback) {
+RsvpDao.prototype = {
+    init: function(callback){
         var self = this;
-
-        docdbUtils.getOrCreateDatabase(self.client, self.databaseId, function (err, db) {
-            if (err) {
+        
+        docdbUtils.getOrCreateDatabase(self.client, self.databaseId, function(err, db){
+            if(err){
                 callback(err);
-
             } else {
                 self.database = db;
-                docdbUtils.getOrCreateCollection(self.client, self.database._self, self.collectionId, function (err, coll) {
-                    if (err) {
+                docdbUtils.getOrCreateCollection(self.client, self.database._self, self.collectionId, function(err, coll){
+                    if(err){
                         callback(err);
-
-                    } else {
+                    } else{
                         self.collection = coll;
                     }
                 });
             }
         });
     },
-
     find: function (querySpec, callback) {
         var self = this;
 
@@ -44,12 +41,10 @@ ArticleDao.prototype = {
             }
         });
     },
-
     addItem: function (item, callback) {
         var self = this;
 
         item.date = Date.now();
-        item.completed = false;
 
         self.client.createDocument(self.collection._self, item, function (err, doc) {
             if (err) {
@@ -60,29 +55,6 @@ ArticleDao.prototype = {
             }
         });
     },
-
-    updateItem: function (itemId, callback) {
-        var self = this;
-
-        self.getItem(itemId, function (err, doc) {
-            if (err) {
-                callback(err);
-
-            } else {
-                doc.completed = true;
-
-                self.client.replaceDocument(doc._self, doc, function (err, replaced) {
-                    if (err) {
-                        callback(err);
-
-                    } else {
-                        callback(null, replaced);
-                    }
-                });
-            }
-        });
-    },
-
     getItem: function (itemId, callback) {
         var self = this;
 
@@ -103,6 +75,6 @@ ArticleDao.prototype = {
             }
         });
     }
-};
+}
 
-module.exports = ArticleDao;
+module.exports = RsvpDao;

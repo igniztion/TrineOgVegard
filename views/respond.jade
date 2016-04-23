@@ -1,0 +1,33 @@
+extends layout
+block content
+    div.row
+        div.column.hero.body-text
+            if submit
+                h1 Takk!
+                if isComing
+                    p Vi gleder oss til å feire dagen sammen med deg/dere.
+                else
+                    p Det var synd. Vi håper å se deg/dere ved en annen anledning. 
+            else
+                h1 RSVP
+                p.
+                    Vi vil gjerne vite hvem som kommer for å feire dagen med oss, så det hadde vært fint om du/dere 
+                    kunne svart her, på e-post, sms, hangouts, snapchat, telefon eller telegraf. 
+                p.
+                    Om vi får svar før 01.06.2016 hadde det vært flott. Legg gjerne med en kommentar hvis
+                    du eller dere har spesielle behov når det kommer til mat og drikke.
+    unless submit
+        div.row
+            div.column.rsvp
+                form(method="post", action="/addresponse")
+                    fieldset
+                        label(for="name") Navn
+                        input(type="text", name="name")
+                        div
+                            input(type="radio", name="coming", value="yes") 
+                            | Jeg/vi kommer <br/>
+                            input(type="radio", group="coming", value="no") 
+                            | Kommer ikke
+                        label(for="comments") Kommentar (f.eks allergier, vegatar eller andre spesielle behov)
+                        textarea(name="comments")
+                        button(type="button", class="button-primary", id="rsvp-button") Send

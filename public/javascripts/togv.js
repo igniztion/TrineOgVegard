@@ -13,10 +13,12 @@ $(document).ready(function () {
 
     //Open the menu
     $(".hamburger").click(function () {
+        
+        $(this).addClass('open');
 
         $('div.content').css('min-height', $(window).height());
 
-        $('nav').css('opacity', 1);
+        $('nav.mobile').animate({'width': ['40%', 'swing']}, { duration: 500});
 
         //set the width of primary content container -> content should not scale while animating
         var contentWidth = $('div.content').width();
@@ -33,8 +35,8 @@ $(document).ready(function () {
         });
 
         //set margin for the whole container with a $ UI animation
-        $("div.content-wrapper").animate({"marginLeft": ["70%", 'easeOutExpo']}, {
-            duration: 700
+        $("div.content-wrapper").animate({"marginLeft": ["40%", 'swing']}, {
+            duration: 500
         });
 
     });
@@ -44,14 +46,15 @@ $(document).ready(function () {
 
         //enable all scrolling on mobile devices when menu is closed
         $('div.content-wrapper').unbind('touchmove');
+        $('div.hamburger').removeClass('open');
 
         //set margin for the whole container back to original state with a $ UI animation
-        $("div.content-wrapper").animate({"marginLeft": ["-1", 'easeOutExpo']}, {
-            duration: 700,
+        $('nav.mobile').animate({'width': ['0', 'swing']}, { duration: 500});
+        $("div.content-wrapper").animate({"marginLeft": ["-1", 'swing']}, {
+            duration: 500,
             complete: function () {
                 $('div.content').css('width', 'auto');
                 $('div.content-overlay').css('display', 'none');
-                $('nav').css('opacity', 0);
                 $('div.content').css('min-height', 'auto');
 
             }

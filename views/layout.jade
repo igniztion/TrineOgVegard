@@ -1,3 +1,16 @@
+mixin pagemenu
+    ul
+        li
+            a(href='/') Hjem
+        li
+            a(href='/guide') Info
+        li
+            a(href='/respond') Svar
+        li
+            a(href='/wishlist') Ønskeliste
+        li
+            a(href='/sleep') Overnatting
+
 doctype html
 html
   head
@@ -11,18 +24,10 @@ html
                 div
                 div
         div.container
-            nav
-                ul
-                    li
-                        a(href='/') Hjem
-                    li
-                        a(href='/guide') Info
-                    li
-                        a(href='/respond') Svar
-                    li
-                        a(href='/wishlist') Ønskeliste
-                    li
-                        a(href='/sleep') Overnatting
+            nav.lg
+                +pagemenu
+            nav.mobile
+                +pagemenu            
             div.content-overlay
             div.content    
                 block content

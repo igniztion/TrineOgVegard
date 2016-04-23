@@ -9,30 +9,31 @@ function Rsvp(rsvpDao) {
 Rsvp.prototype = {
     show: function(req, res){
         res.render('respond',{
-            title: "Svar - " + config.title
+            title: "Svar - " + config.title,
+            currentPath: 'respond'
         });
     },
 
-    getResponses : function(req, res){
-        var self = this;
+    // getResponses : function(req, res){
+    //     var self = this;
         
-        var querySpec = {
-            query : 'SELECT TOP 5 * FROM root'
-        };
+    //     var querySpec = {
+    //         query : 'SELECT TOP 5 * FROM root'
+    //     };
         
-        self.rsvpDao.find(querySpec, function(err, items){
-            if(err){
-                console.log(err);
-                items = [];
-            } 
+    //     self.rsvpDao.find(querySpec, function(err, items){
+    //         if(err){
+    //             console.log(err);
+    //             items = [];
+    //         } 
             
-            res.render('index', {
-            title: 'Trine & Vegard',
-            articles: items
-            });        
-        });
+    //         res.render('index', {
+    //         title: 'Trine & Vegard',
+    //         articles: items
+    //         });        
+    //     });
         
-    },
+    // },
     addResponse : function(req, res, next){
         var self = this;
         var item = req.body;
@@ -45,7 +46,8 @@ Rsvp.prototype = {
             res.render('respond',{
                 title: "Takk - " + config.title,
                 submit: true,
-                isComing: item.coming === 'yes'
+                isComing: item.coming === 'yes',
+                currentPath: 'respond'
             });
         });
     }

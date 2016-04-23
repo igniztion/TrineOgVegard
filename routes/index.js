@@ -6,7 +6,7 @@ var config = require('../config')
 router.get('/', function(req, res, next) {
   res.render('index', { 
     title: config.title,
-    currentPath: "home"
+    currentPath: ""
  });
 });
 

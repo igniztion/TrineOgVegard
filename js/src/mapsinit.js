@@ -1,8 +1,4 @@
-function initBoth(){
-    initMap(true);
-}
-
-function initMap(showchurch) {
+var initMaps = function(showchurch) {
     var centerPos = {lat: 58.1894, lng: 8.1006};
     var tveitKirkePos = {lat: 58.228283, lng: 8.121387};
     var ernstPos = { lat: 58.144552, lng: 7.992945};
@@ -58,16 +54,12 @@ function initMap(showchurch) {
     ernstMarker.addListener('click', function(){
         ernstInfoWindow.open(map, ernstMarker)
     })
-}
+};
 
-$(function(){
-    $('#rsvp-button').on('click', function(){
-        
-        var name = $('input[name="name"]').val();
-        if(name && name !== '' && name.length > 2){
-            $('.rsvp form').submit();
-        } else {
-            $('input[name="name"]').addClass('error');
-        }
-    });
-})
+var initBoth = function(){
+    initMap(true);
+};
+
+var initMap = function(){
+    initMaps(false)
+};

@@ -20,7 +20,7 @@ router.get('/guide', function(req, res, next){
 
 router.get('/wishlist', function(req, res, next){
     res.render('wishlist', {
-      title: 'Ønskeliste - ' + config.title,
+      title: 'Gave - ' + config.title,
       currentPath: 'wishlist'
     });
 });

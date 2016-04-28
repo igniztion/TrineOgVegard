@@ -7,12 +7,20 @@ module.exports = {
       scripts: [
           './node_modules/jquery/dist/jquery.js',
           './js/src/hamburger.js',
-          './js/src/mapsinit.js', 
           './js/src/form.js'
       ],
       options: {
           rev: false,
           uglify: true
+      }
+    },
+    maps:{
+      scripts: [
+      './js/src/mapsInit.js'
+    ],
+      options: {
+        rev: false,
+        uglify: true
       }
     }
   },

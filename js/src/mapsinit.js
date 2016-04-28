@@ -57,7 +57,7 @@ var initMaps = function(showchurch) {
 };
 
 var initBoth = function(){
-    initMap(true);
+    initMaps(true);
 };
 
 var initMap = function(){
